@@ -65,8 +65,8 @@ myY = myY + Math.sin(myAngle)*(mySpeed-5);
   void show()
   {
     fill(245, 189, 31);
-    stroke(255, 140, 0);
-    strokeWeight(9);
+    //stroke(255, 140, 0);
+    //strokeWeight(9);
    ellipse((int)myX, (int)myY, 80,80);
   }
 }

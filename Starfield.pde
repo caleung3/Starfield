@@ -3,12 +3,12 @@ void setup(){
   size(800,800);
   strokeWeight(0);
   bob = new Particle[1000];
-  for(int i = 0; i<bob.length; i++)
-  {
-    bob[i] = new Particle();
-    bob[0] = new OddballParticle();
+      bob[0] = new OddballParticle();
      bob[1] = new OddballParticle();
       bob[2] = new OddballParticle();
+  for(int i = 3; i<bob.length; i++)
+  {
+    bob[i] = new Particle();
   }
   
 }

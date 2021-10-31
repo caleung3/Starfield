@@ -1,20 +1,72 @@
-//your code here
-void setup()
-{
-	//your code here
+Particle[]  bob;
+void setup(){
+  size(800,800);
+  strokeWeight(0);
+  bob = new Particle[1000];
+  for(int i = 0; i<bob.length; i++)
+  {
+    bob[i] = new Particle();
+    bob[0] = new OddballParticle();
+     bob[1] = new OddballParticle();
+      bob[2] = new OddballParticle();
+  }
+  
 }
-void draw()
-{
-	//your code here
+void draw(){
+  background(0);
+  for(int i = 0; i<bob.length; i++)
+  {
+  bob[i].move();
+  bob[i].show();
+  }
+    strokeWeight(23);
+    stroke(255, 127, 0);
+    fill(0);
+    ellipse(400,400,180,180);
+    noFill();
+    strokeWeight(28);
+    arc(400, 400, 200, 70, 0, PI, OPEN);
+    strokeWeight(0);
+    
 }
-class Particle
-{
-	//your code here
+class Particle{ 
+  double myX,myY, mySpeed, myAngle;
+  int myColor;
+  Particle()
+  {
+    myX = myY = 400;
+    mySpeed = Math.random()*10;
+    myAngle = Math.random()*2*Math.PI;
+    myColor = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+  }
+  void move(){
+myX = myX + Math.cos(myAngle)*mySpeed;
+myY = myY + Math.sin(myAngle)*mySpeed;
+  }
+  void show(){
+    fill(myColor);
+    strokeWeight(0);
+    ellipse((int) myX, (int)myY, 10,10);
+  }
 }
-
-class OddballParticle //inherits from Particle
-{
-	//your code here
+  class OddballParticle extends Particle{
+  OddballParticle()
+  {
+    myX = myY = 400;
+    mySpeed = Math.random()*10;
+    myAngle = Math.random()*2*Math.PI;
+    myColor = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+  }
+  void move()
+  {
+myX = myX + Math.cos(myAngle)*(mySpeed-5);
+myY = myY + Math.sin(myAngle)*(mySpeed-5);
+  }
+  void show()
+  {
+    fill(245, 189, 31);
+    stroke(255, 140, 0);
+    strokeWeight(9);
+   ellipse((int)myX, (int)myY, 80,80);
+  }
 }
-
-
